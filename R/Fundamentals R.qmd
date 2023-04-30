@@ -1,0 +1,203 @@
+---
+title: "Fundamentals R"
+author: "Juan David Dueñas Garavito"
+format: html
+editor: visual
+---
+
+## Introducción
+
+En este documento se abordarán los fundamentos del lenguaje de programación estadística R. R es uno de los lenguajes más populares para el análisis de datos y la ciencia de datos y es utilizado por muchos profesionales y organizaciones en todo el mundo. El objetivo de este documento es proporcionar una guía práctica para aquellos que quieren aprender a programar en R, así como para aquellos que ya tienen experiencia en R pero quieren mejorar sus habilidades y ampliar sus conocimientos.
+
+Este documento está diseñado para ser utilizado como una referencia práctica para aquellos que trabajan con R en su trabajo o proyectos personales. Al final del documento, se espera que los lectores tengan las habilidades necesarias para trabajar con datos en R y aplicar técnicas de análisis de datos y visualización en sus proyectos de ciencia de datos.
+
+## Acerca de R
+
+R es un lenguaje de programación y entorno de desarrollo estadistico gratuito y de codigo abierto, cualquier persona puede descargarlo utilizarlo y modificarlo esto permite que tenga una gran comunidad y documentación bien detallada de cada una de sus funcionalidades y paquetes, R es orientado a objetos lo que significa que los datos se organizan en objetos que se pueden manipular y analizar, R cuenta con una interfaz gráfica de usuario llamada RStudio que facilita el trabajo con el lenguaje y permite la creación y visualización de datos de manera sencilla.
+
+R permite hacer diferentes tipos de analisis, Estadistica Descriptiva, Estadistica Bayesiana, Modelos Estado Espacio, entre otros es decir en R podemos hacer macroeconometria, microeconometria, econometría fianciera, evaluación de impacto, econometría bayesiana, econometria espacial entre otros analisis estadisticos.
+
+## Interfaz de RStudio
+
+RStudio proporciona una interfaz gráfica de usuario (GUI) que facilita el trabajo con R, lo que lo hace más accesible para los usuarios que no están familiarizados con la programación en línea de comandos.
+
+Al ingresar a RStudio nos vamos a encontrar con cuatro principales paneles:
+
+![](images/Vista%20General%20RStudio-01.png)
+
+1.  **Editor :** En el editor será donde colocaremos el codigo y los comandos de ejecución.
+2.  **Consola:** Alli veremos los resultados o los outputs del codigo.
+3.  **Espacio de Trabajo:** Aqui podemos ver el historial de comandos que hemos usado, las diferentes variables, datasets, objetos y funciones que hemos declarado entre otras cosas
+4.  **Archivos / graficas / paquetes:** Allí podremos visualizar los plots que generemos en el codigo, las librerias que tengamos instaladas, los archivos de nuestro PC entre otros
+
+Nos vamos a centrar en el trabajo que se hace en el primer panel.
+
+## Comentarios
+
+Es una buena practica comentar nuestro codigo, esto significa ir colocando texto no ejecutable que explique que esta haciendo nuestro codigo, esto facilitará más adelante nuestra vida al corregir el codigo y a otras personas que quieran entender lo que estamos haciendo, para comentar el codigo usamos el #, con esto el texto que se encuentre despues del numeral no será ejecutado.
+
+```{r}
+#Esto es un comentario
+```
+
+## Paquetes y limpieza de entorno
+
+R siempre guarda las diferentes variables, datasets entre otros objetos, es por esto que es una buena practica al principio de cada codigo limipar nuestro entorno, esto lo hacemos con el siguiente comando.
+
+```{r}
+remove(list = ls())
+```
+
+Dado que R es un lenguaje Open Source, los usuarios pueden crear paquetes para facilitar o realizar nuevas operaciones que el R base no puede, sin embargo para hacer uso de estos paquetes debemos instalarlos y luego activarlos, la instalación solo se hace una vez, la activación si debe hacerse en cada codigo que deseemos volver a abrir RStudio, es una buena practica activar todos los paquetes en las primeras lineas de codigo.
+
+```{r}
+install.packages("dplyr")
+install.packages("ggplot2")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+## Operadores Aritmeticos
+
+R incluye varios operadores aritmeticos que se utilizan para realizar operaciones matematicas. Los operadores aritmeticos incluyen:
+
+-   \+ : Suma dos números
+
+-   \- : Resta dos números
+
+-   \* : Multiplica dos números
+
+-   / : Divide dos números
+
+-   \*\* : Eleva un número a una potencia
+
+## Variables y tipos de objetos
+
+Diremos que una variable es un "contenedor de información" en la que podemos "guardar" diferntes objetos, generalmente se escriben en minúscula, sin espacios ni tildes, comas, puntos, signos de interrogación o cualquier otro caracter a excepción del guión bajo, para declarar variable en R podemos usar \<- como tambien =
+
+Para notación de este trabajo usaremos unicamente el igual.
+
+```{r}
+nombre_de_la_variable <- "Valor de la variable"
+nombre_de_la_variable = "Valor de la variable"
+```
+
+para visualizar nuestra variable en la consola (Panel #2) solo basta con llamarla de nuevo o utilizar la función print, o podemos usar un ; y volver a llamar la funciín en la misma linea
+
+```{r}
+nombre_de_la_variable
+print(nombre_de_la_variable)
+nombre_de_la_variable = "Valor de la variable"; nombre_de_la_variable
+```
+
+Los objetos que guardamos en las variables pueden ser de diferentes tipos y en función de esto la forma de guardarlos cambia.
+
+```{r}
+objeto_numeric = 3
+objeto_logic = FALSE
+objeto_character = "Hola Mundo"
+objeto_complex = 1+0i
+```
+
+Para verificar de que tipo o clase es un objeto podemos usar la función class, puede darse el caso de que requiero convertir un objeto de un tipo a otro tipo, para esto debo usar alguna de las siguientes funciones según corresponda
+
+```{r}
+class(x)
+
+as.numeric(x)
+as.logical(x)
+as.character(x)
+```
+
+Para hacer operaciones entre variables nos aseguramos que las variables sean de tipo numerico y operamos:
+
+```{r}
+a = 5
+b = 7
+
+c = a + b
+c
+```
+
+## Vectores
+
+Los vectores son entes matematicos que se usan para guardar datos de cierto tipo especifico, para crear vectores en R debemos usar el comando C, los vectores nos permiten hacer operaciones entre varios datos al mismo tiempo sin tener que recurrir a bucles
+
+```{r}
+mi_primer_vector = c(25,5,3,6,3,6)
+vector_dos = c("Hola", "mundo")
+vector_tres = c(FALSE, TRUE, FALSE, TRUE)
+```
+
+Como los vectores solamente pueden guardar un tipo de dato si llegamos a introducir diferentes tipos de datos el vector automaticamente va a transformar estos datos para que el vector quede solamente en función de un tipo de dato.
+
+```{r}
+y <- c(1.7, "a")   ## character
+y <- c(TRUE, 2)    ## numeric
+y <- c("a", TRUE)  ## character
+
+```
+
+Podemos crear vectores con determinadas caracteristicas de maneras mucho más eficientes, por ejemplo:
+
+```{r}
+#Crear un vector secuencia 1 a 1.
+Dias = 0:15; Dias
+
+#Crar un vector secuencia que avance cada j unidades: seq(a,b,j)
+Medicion = seq(1,5, 0.5); Medicion
+
+#Crear un vector donde los objetos se repiten n veces: rep(objeto,n)
+Numerico = rep(1,10); Numerico
+#Crear un vector de repeticiones
+Dummy = c(rep(0,5), rep(1,10), rep(0,5)); Dummy
+
+```
+
+Para concatenar vectores simplemente debemos:
+
+```{r}
+vector_a = c(2,54,3)
+vector_b = c(3,7,8)
+vector_c = c(vector_a, vector_b); vector_c
+
+```
+
+Las operaciones con vectores funcionan de manera similar a las operaciones con variables, en ultimas seguimos operando variables solo que en este caso las variables no contienen un solo valor sino contienen un vector de valores, los vectores entre si deben ser iguales o multiplos. En caso de ser iguales se hará la operación uno a uno, en cambio si son multiplos se repetira la operación en los diferentes vectores, tal que:
+
+```{r}
+#Operación uno a uno
+vector_a = c(2,54,3)
+vector_b = c(3,7,8)
+vector_c = vector_a + vector_b; vector_c
+#Operación entre multiplos
+vector_a = c(2,54,3,4,8,5)
+vector_b = c(3,7,8)
+vector_c = vector_a + vector_b; vector_c
+```
+
+## Matrices
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
