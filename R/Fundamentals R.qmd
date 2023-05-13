@@ -23,7 +23,7 @@ RStudio proporciona una interfaz gráfica de usuario (GUI) que facilita el traba
 
 Al ingresar a RStudio nos vamos a encontrar con cuatro principales paneles:
 
-![](images/Vista%20General%20RStudio-01.png)
+![](Vista%20General%20RStudio.png)
 
 1.  **Editor :** En el editor será donde colocaremos el codigo y los comandos de ejecución.
 2.  **Consola:** Alli veremos los resultados o los outputs del codigo.
@@ -51,6 +51,9 @@ remove(list = ls())
 Dado que R es un lenguaje Open Source, los usuarios pueden crear paquetes para facilitar o realizar nuevas operaciones que el R base no puede, sin embargo para hacer uso de estos paquetes debemos instalarlos y luego activarlos, la instalación solo se hace una vez, la activación si debe hacerse en cada codigo que deseemos volver a abrir RStudio, es una buena practica activar todos los paquetes en las primeras lineas de codigo.
 
 ```{r}
+options(repos = c(CRAN = "http://cran.rstudio.com"))
+install.packages("tinytex")
+install.packages("TeX") 
 install.packages("dplyr")
 install.packages("ggplot2")
 ```
@@ -58,6 +61,7 @@ install.packages("ggplot2")
 ```{r}
 library(dplyr)
 library(ggplot2)
+library(tinytex)
 ```
 
 ## Operadores Aritmeticos
@@ -105,6 +109,7 @@ objeto_complex = 1+0i
 Para verificar de que tipo o clase es un objeto podemos usar la función class, puede darse el caso de que requiero convertir un objeto de un tipo a otro tipo, para esto debo usar alguna de las siguientes funciones según corresponda
 
 ```{r}
+x = 1
 class(x)
 
 as.numeric(x)
@@ -180,24 +185,3 @@ vector_c = vector_a + vector_b; vector_c
 ```
 
 ## Matrices
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
