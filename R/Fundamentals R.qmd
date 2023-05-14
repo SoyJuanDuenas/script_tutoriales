@@ -240,13 +240,13 @@ como nos podemos dar cuenta al usar vectores tambien podemos crear las matrices 
 Como sabemos las matrices tienen formas de operarse de manera diferente a los escalares o constantes, por lo cual vamos a detallar cada una de las operaciones principales:
 
 ```{r}
-#Sumar una constante j a la matriz
+#Suma escalar - matriz
 MAT1 + 10
 
-#Suma de matrices
+#Suma matriz - matriz
 MAT3 + t(MAT4)
 
-#Multiplicar una constante j a la matriz
+#Multiplicar escalar - matriz
 MAT3*10
 
 ```
@@ -269,7 +269,8 @@ Finalmente calcularemos la multiplicación matricial que recordemos no se hace p
 ```{r}
 #Producto de matrices
 dim(MAT3) #conocer las dimensiones de una matriz: 11x2
-dim(MAT4) #2x11
+dim(MAT4) #2x11, son multiplicable. por ende:
+
 MAT3%*%MAT4
 
 #Inversa de una matriz: solve()
@@ -280,15 +281,6 @@ det(Mat_diag)
 ```
 
 Estos anteriores procesos si no cumplen con determinadas caracteristicas no se pueden llevar a cabo, solo se puede invertir matrices invertibles, es decir que su determinante sea diferente de 0, entre otras caracteristicas
-
-```{r}
-# Que pasa con la inversa de una matriz no cuadrada: solve()
-#solve(MAT2)
-
-#Que pasa con el determinante de una matriz no cuadrada: det()
-#det(MAT1)
-
-```
 
 para acceder a elementos especificos de la matriz debemos hacer uso del indice en formato (x,y) tal que sea (fila, columna)
 
@@ -302,6 +294,7 @@ MAT2[1,2]
 podemos hacer esto tambien para mostrar solo una fila o solo una columna de la matriz
 
 ```{r}
+MAT2
 #Mostrar los elementos de la fila i: MAT[i,]
 MAT2[1,]
 
