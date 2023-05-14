@@ -1,8 +1,10 @@
 ---
 title: "Fundamentals R"
-author: "Juan David Dueñas Garavito"
+author: "Juan David Dueñas Garavito & Germán Camilo Rodriguez "
 format: html
 editor: visual
+toc: true # [false, true] Include a table of contents in the document
+toc-depth: 2 # Least significant section header to include in table of contents
 ---
 
 ## Introducción
@@ -51,6 +53,7 @@ remove(list = ls())
 Dado que R es un lenguaje Open Source, los usuarios pueden crear paquetes para facilitar o realizar nuevas operaciones que el R base no puede, sin embargo para hacer uso de estos paquetes debemos instalarlos y luego activarlos, la instalación solo se hace una vez, la activación si debe hacerse en cada codigo que deseemos volver a abrir RStudio, es una buena practica activar todos los paquetes en las primeras lineas de codigo.
 
 ```{r}
+#| output: false
 options(repos = c(CRAN = "http://cran.rstudio.com"))
 install.packages("tinytex")
 install.packages("TeX") 
@@ -59,6 +62,7 @@ install.packages("ggplot2")
 ```
 
 ```{r}
+#| output: false
 library(dplyr)
 library(ggplot2)
 library(tinytex)
@@ -184,4 +188,162 @@ vector_b = c(3,7,8)
 vector_c = vector_a + vector_b; vector_c
 ```
 
+podemos hacer estadistica descriptiva de los vectores usando la función summary
+
+```{r}
+summary(vector_a)
+```
+
+entre otros posibles metodos de la clase vector
+
+```{r}
+#describir cuales son los elementos que no se repiten del vector
+unique(vector_a)
+
+#Ordenar elementos de menor a mayor
+sort(vector_a)  
+
+#Posición ordenada de menor a mayor
+order(vector_a) 
+
+#Ordenar elementos de mayor a menor:
+sort(vector_a, decreasing = TRUE)       
+
+```
+
 ## Matrices
+
+Una matriz es una estructura de datos bidimensional que consiste en una colección de elementos organizados en filas y columnas. Se puede representar como una tabla o cuadrícula de números o valores. Cada elemento en la matriz se identifica por su posición, que se determina por el número de fila y el número de columna.
+
+Para crear matrices en R podemos hacerlo directamente o a partir de vectores previamente creados, para crear matrices directamente usamos:
+
+```{r}
+MAT1=matrix(1:10,nrow = 5,byrow = TRUE);MAT1 
+MAT2=matrix(10:19,ncol=5, nrow = 2, byrow = FALSE);MAT2
+```
+
+donde el primer parametro corresponde a con que vamos a llenar esas matrices, este intervalo debe ser multiplo del numero de filas o columnas que queremos crear, el segundo si vamos a hacer la creación de la matriz desde la columna o desde las filas, podemos hacerlo tambien desde ambas.
+
+Ahora bien, si queremos crear matrices a partir de vectores ya establecidos previamente usaremos el siguiente codigo:
+
+```{r}
+a = c(1,4,5,7,9,7,10,6,5,7,9)
+b = c(3,4,6,8,2,3,11,1,2,5,6)
+MAT3 = cbind(a,b); MAT3
+MAT4 = rbind(a,b); MAT4 
+```
+
+como nos podemos dar cuenta al usar vectores tambien podemos crear las matrices desde las filas o desde las columnas
+
+### Operaciones entre matrices
+
+Como sabemos las matrices tienen formas de operarse de manera diferente a los escalares o constantes, por lo cual vamos a detallar cada una de las operaciones principales:
+
+```{r}
+#Sumar una constante j a la matriz
+MAT1 + 10
+
+#Suma de matrices
+MAT3 + t(MAT4)
+
+#Multiplicar una constante j a la matriz
+MAT3*10
+
+```
+
+Podemos a su vez tambien crear nuevas matrices especiales
+
+```{r}
+#Matriz Transpuesta: t() 
+t(MAT1) 
+
+#Matriz identidad: diag()
+diag(5)
+
+#Matriz diagonal: diag()
+Mat_diag = diag(1:10)
+```
+
+Finalmente calcularemos la multiplicación matricial que recordemos no se hace punto a punto sino por medio de un proceso diferente, tambien la inversa de una matriz y la determinante
+
+```{r}
+#Producto de matrices
+dim(MAT3) #conocer las dimensiones de una matriz: 11x2
+dim(MAT4) #2x11
+MAT3%*%MAT4
+
+#Inversa de una matriz: solve()
+solve(Mat_diag)
+
+#Determinante de la matriz: det()
+det(Mat_diag)
+```
+
+Estos anteriores procesos si no cumplen con determinadas caracteristicas no se pueden llevar a cabo, solo se puede invertir matrices invertibles, es decir que su determinante sea diferente de 0, entre otras caracteristicas
+
+```{r}
+# Que pasa con la inversa de una matriz no cuadrada: solve()
+#solve(MAT2)
+
+#Que pasa con el determinante de una matriz no cuadrada: det()
+#det(MAT1)
+
+```
+
+para acceder a elementos especificos de la matriz debemos hacer uso del indice en formato (x,y) tal que sea (fila, columna)
+
+```{r}
+MAT2
+#Mostrar el elemento ij de la matriz: MAT[i,j]
+MAT2[2,1]
+MAT2[1,2]
+```
+
+podemos hacer esto tambien para mostrar solo una fila o solo una columna de la matriz
+
+```{r}
+#Mostrar los elementos de la fila i: MAT[i,]
+MAT2[1,]
+
+#Mostrar los elmentos de la columna j: MAT[,j]
+MAT2[,1]
+```
+
+para mejor entendimiento de nuestra matriz podemos cambiarle los nombres a las filas y las columnas, esto tambien nos facilitará el trabajo posterior
+
+```{r}
+rownames(MAT1) = c("a","b","c","d","e")
+colnames(MAT1) = c("f","g")
+MAT1
+```
+
+## Operadores logicos y de comparación
+
+Los operadores logicos se utilizan para combinar expresiones lógicas y producir un resultado verdadero o falso. Además, se pueden utilizar los operadores de comparación para crear expresiones lógicas. Los operadores logicos y de comparación entre vectores de las matrices son los siguientes:
+
+```{r}
+#Elementos mayores o iguales a j en el vector
+a>=4
+
+#Elementos menores o iguales a j en el vector
+a<=4
+
+#Elementos iguales a j en el vector
+a==4
+
+#Elementos diferentes a i en el vector
+b!=6
+
+#Dos afirmaciones verdaderas: "&"
+a>=1 & b==3 # Recuerden que & es un "y" matemático
+
+#Al menos una es cierta: "|"
+a>=1 | b==3 # Recuerden que | es un "o" matemático
+
+#Negación: "!"
+!a < 0 #a no es menor que cero
+```
+
+## Na y NaN
+
+Cuando el codigo nos reporta un dato Na tenemos un missing value, es decir, datos vacios. Por otra parte cuando tenemos un NaN se traduce como un "non a number" es decir que el resultado de la operación no se puede calcular dado que es indeterminado
