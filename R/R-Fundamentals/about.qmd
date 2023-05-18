@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+## Introducción
+
+En este documento se abordarán los fundamentos del lenguaje de programación estadística R. R es uno de los lenguajes más populares para el análisis de datos y la ciencia de datos y es utilizado por muchos profesionales y organizaciones en todo el mundo. El objetivo de este documento es proporcionar una guía práctica para aquellos que quieren aprender a programar en R, así como para aquellos que ya tienen experiencia en R pero quieren mejorar sus habilidades y ampliar sus conocimientos.
+
+Este documento está diseñado para ser utilizado como una referencia práctica para aquellos que trabajan con R en su trabajo o proyectos personales. Al final del documento, se espera que los lectores tengan las habilidades necesarias para trabajar con datos en R y aplicar técnicas de análisis de datos y visualización en sus proyectos de ciencia de datos.
