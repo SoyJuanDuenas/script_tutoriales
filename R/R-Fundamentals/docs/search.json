@@ -1,17 +1,17 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "En este documento se abordarán los fundamentos del lenguaje de programación estadística R. R es uno de los lenguajes más populares para el análisis de datos y la ciencia de datos y es utilizado por muchos profesionales y organizaciones en todo el mundo. El objetivo de este documento es proporcionar una guía práctica para aquellos que quieren aprender a programar en R, así como para aquellos que ya tienen experiencia en R pero quieren mejorar sus habilidades y ampliar sus conocimientos.\nEste documento está diseñado para ser utilizado como una referencia práctica para aquellos que trabajan con R en su trabajo o proyectos personales. Al final del documento, se espera que los lectores tengan las habilidades necesarias para trabajar con datos en R y aplicar técnicas de análisis de datos y visualización en sus proyectos de ciencia de datos."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Primeros Pasos",
     "section": "",
     "text": "R es un lenguaje de programación y entorno de desarrollo estadistico gratuito y de codigo abierto, cualquier persona puede descargarlo utilizarlo y modificarlo esto permite que tenga una gran comunidad y documentación bien detallada de cada una de sus funcionalidades y paquetes, R es orientado a objetos lo que significa que los datos se organizan en objetos que se pueden manipular y analizar, R cuenta con una interfaz gráfica de usuario llamada RStudio que facilita el trabajo con el lenguaje y permite la creación y visualización de datos de manera sencilla.\nR permite hacer diferentes tipos de analisis, Estadistica Descriptiva, Estadistica Bayesiana, Modelos Estado Espacio, entre otros es decir en R podemos hacer macroeconometria, microeconometria, econometría fianciera, evaluación de impacto, econometría bayesiana, econometria espacial entre otros analisis estadisticos."
-  },
-  {
-    "objectID": "index.html#acerca-de-r",
-    "href": "index.html#acerca-de-r",
-    "title": "Primeros Pasos",
-    "section": "Acerca de R",
-    "text": "Acerca de R\nR es un lenguaje de programación y entorno de desarrollo estadistico gratuito y de codigo abierto, cualquier persona puede descargarlo utilizarlo y modificarlo esto permite que tenga una gran comunidad y documentación bien detallada de cada una de sus funcionalidades y paquetes, R es orientado a objetos lo que significa que los datos se organizan en objetos que se pueden manipular y analizar, R cuenta con una interfaz gráfica de usuario llamada RStudio que facilita el trabajo con el lenguaje y permite la creación y visualización de datos de manera sencilla.\nR permite hacer diferentes tipos de analisis, Estadistica Descriptiva, Estadistica Bayesiana, Modelos Estado Espacio, entre otros es decir en R podemos hacer macroeconometria, microeconometria, econometría fianciera, evaluación de impacto, econometría bayesiana, econometria espacial entre otros analisis estadisticos."
   },
   {
     "objectID": "index.html#interfaz-de-rstudio",
@@ -75,12 +75,5 @@
     "title": "Primeros Pasos",
     "section": "Na y NaN",
     "text": "Na y NaN\nCuando el codigo nos reporta un dato Na tenemos un missing value, es decir, datos vacios. Por otra parte cuando tenemos un NaN se traduce como un “non a number” es decir que el resultado de la operación no se puede calcular dado que es indeterminado"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "En este documento se abordarán los fundamentos del lenguaje de programación estadística R. R es uno de los lenguajes más populares para el análisis de datos y la ciencia de datos y es utilizado por muchos profesionales y organizaciones en todo el mundo. El objetivo de este documento es proporcionar una guía práctica para aquellos que quieren aprender a programar en R, así como para aquellos que ya tienen experiencia en R pero quieren mejorar sus habilidades y ampliar sus conocimientos.\nEste documento está diseñado para ser utilizado como una referencia práctica para aquellos que trabajan con R en su trabajo o proyectos personales. Al final del documento, se espera que los lectores tengan las habilidades necesarias para trabajar con datos en R y aplicar técnicas de análisis de datos y visualización en sus proyectos de ciencia de datos."
   }
 ]
